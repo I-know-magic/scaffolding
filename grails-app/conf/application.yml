@@ -1,0 +1,29 @@
+grails:
+  profile: plugin
+  codegen:
+    defaultPackage: scaffolding
+info:
+    app:
+        name: '@info.app.name@'
+        version: '@info.app.version@'
+        grailsVersion: '@info.app.grailsVersion@'
+spring:
+  groovy:
+    template:
+      check-template-location: false
+
+---
+dataSource:
+    pooled: true
+    jmxExport: true
+    driverClassName: com.mysql.jdbc.Driver
+    username: root
+    password:
+    #logSql : true
+
+environments:
+    development:
+        properties: dev.properties
+        dataSource:
+            dbCreate: none
+            url: jdbc:mysql://127.0.0.1:3306/gps-web?useUnicode=true&characterEncoding=UTF-8

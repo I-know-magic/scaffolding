@@ -1,0 +1,80 @@
+buildscript {
+    ext {
+      grailsVersion = project.grailsVersion
+    }
+    repositories {
+        mavenLocal()
+        mavenLocal()
+//        maven { url "http://127.0.0.1/nexus/content/groups/public" }
+        maven { url "https://repo.grails.org/grails/core" }
+//        maven { url "http://maven.oschina.net/content/groups/public/" }
+        maven { url "http://127.0.0.1:8081/nexus/content/groups/public" }
+    }
+    dependencies {
+        classpath "org.grails:grails-gradle-plugin:$grailsVersion"
+    }
+}
+
+plugins {
+  id "com.jfrog.bintray" version "1.0"
+  id "io.spring.dependency-management" version "0.4.0.RELEASE"
+}
+
+ext {
+  grailsVersion = project.grailsVersion
+  gradleWrapperVersion = project.gradleWrapperVersion
+}
+
+version "3.0.2.7"
+group "com.saas"
+
+repositories {
+  mavenLocal()
+    mavenLocal()
+//        maven { url "http://127.0.0.1/nexus/content/groups/public" }
+    maven { url "https://repo.grails.org/grails/core" }
+//        maven { url "http://maven.oschina.net/content/groups/public/" }
+    maven { url "http://127.0.0.1:8081/nexus/content/groups/public" }
+}
+
+apply plugin: 'maven-publish'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: "spring-boot"
+apply plugin: "org.grails.grails-plugin"
+apply plugin: "org.grails.grails-gsp"
+
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
+
+dependencyManagement {
+    imports {
+        mavenBom "org.grails:grails-bom:$grailsVersion"
+    }
+    applyMavenExclusions false
+}
+
+dependencies {
+    compile "org.grails:grails-dependencies"
+    compile "org.grails:grails-web-boot"
+    compile 'javax.servlet:javax.servlet-api'
+
+    compile "com.saas:saas-common:1.7.2"
+    compile "org.grails.plugins:fields:2.0.1"
+  testCompile "org.grails:grails-plugin-testing"
+    runtime "mysql:mysql-connector-java:5.1.29"
+
+  console "org.grails:grails-console"
+}
+
+eclipse {
+    classpath {
+        plusConfigurations += [configurations.provided]
+    }
+}
+
+idea {
+    module {
+        scopes.PROVIDED.plus += [configurations.provided]
+    }
+}
