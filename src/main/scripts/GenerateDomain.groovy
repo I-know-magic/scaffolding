@@ -147,7 +147,7 @@ if (args) {
 
         //生成View
         fileName = "grails-app/views/${md.propertyName}/view.gsp"
-        render template: template('scaffolding/index1.gsp'),//easyuiView
+        render template: template('scaffolding/easyuiView.gsp'),//easyuiView
                 destination: file(fileName),
                 model: [packageName: md.pkgName, tableComment: md.tableComment, className: md.className, propertyName: md.propertyName, timestamp: timestamp, dgTitles: sbHeader.toString(), editForm: sbEdit.toString()],
                 overwrite: overwrite
