@@ -23,8 +23,8 @@ class ${className}Service {
             ResultJSON result = new ResultJSON()
             def map = new HashMap<String, Object>()
 
-            StringBuffer query = new StringBuffer("from ${className} t")
-            StringBuffer queryCount = new StringBuffer("select count(t) from ${className} t")
+            StringBuffer query = new StringBuffer("from ${className} t where isDeleted=false ")
+            StringBuffer queryCount = new StringBuffer("select count(t) from ${className} t where isDeleted=false ")
             def queryParams = new HashMap()
             queryParams.max = params.rows
             queryParams.offset = (Integer.parseInt(params.page) - 1) * Integer.parseInt(params.rows)
