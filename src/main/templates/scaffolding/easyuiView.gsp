@@ -87,8 +87,6 @@
                data-options="fit:true, fitColumns:false, idField : 'id',frozenColumns:[[{field:'id',checkbox:true}]]">
             <thead>
             ${dgTitles}
-            %{--<th data-options="field:'unitCode',width:80,formatter:codeB">单位编码</th>--}%
-            %{--<th data-options="field:'unitName',width:120">单位名称</th>--}%
             </thead>
         </table>
 
@@ -99,9 +97,9 @@
                 <table cellpadding="5" style="table-layout:fixed;">
                     <input class="easyui-validatebox" type="hidden" name="id" id="id"/>
                     ${editForm}
-                    %{--<input type="hidden" name="tenantId" value="0"/>--}%
-                    %{--<tr>--}%
-                    %{--<td class="title"><div style="width: 124px;">单位编码:</div></td>--}%
+
+                    %{-- 实例
+                    <td class="title"><div style="width: 124px;">单位编码:</div></td>--}%
                     %{--<td>--}%
                     %{--<input class="easyui-textbox" type="text" name="unitCode" readonly="readonly"/>--}%
                     %{--</td>--}%
@@ -111,7 +109,6 @@
                     %{--<td><input class="easyui-textbox" type="text" name="unitName"--}%
                     %{--data-options="required:true,validType:'length[1,10]',missingMessage:'单位名称为必填项',invalidMessage:'长度不超过10个汉字或字符！'"/></td>--}%
                     %{--</tr>--}%
-
                 </table>
             </form>
         </div>
