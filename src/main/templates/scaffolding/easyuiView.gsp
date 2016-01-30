@@ -37,7 +37,7 @@
             orderTable.mainAdd("<g:createLink controller="${propertyName}" action="create"/>","${tableComment}-增加");
             orderTable.formAction = "<g:createLink controller="${propertyName}" action="save"  />";
         }
-        function edit() {
+        function edit(id) {
             orderTable.mainEdit("<g:createLink controller="${propertyName}" action="edit"  />", "${tableComment}-修改", id);
             orderTable.formAction = "<g:createLink controller="${propertyName}" action="update"  />";
         }
